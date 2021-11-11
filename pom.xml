@@ -18,17 +18,17 @@
 		<java.version>11</java.version>
 	</properties>
 	<distributionManagement>
-		<repository>
-			<id>releases</id>
-			<name>releases</name>
-			<url>http://localhost:8082/artifactory/libs-release-local</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshot</id>
-			<name>snapshots</name>
-			<url>http://localhost:8082/artifactory/libs-snapshot-local</url>
-		</snapshotRepository>
-	</distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>MindDevops11-releases</name>
+        <url>http://localhost:8082/artifactory/libs-release-local/</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>MindDevops11-snapshots</name>
+        <url>http://localhost:8082/artifactory/libs-snapshot-local/</url>
+    </snapshotRepository>
+</distributionManagement>
 
 	<scm>
 		<connection>scm:git:git@github.com:Jamuna1998/devops.git</connection>
