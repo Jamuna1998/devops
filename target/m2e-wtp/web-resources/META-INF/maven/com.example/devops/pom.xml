@@ -19,17 +19,17 @@
 		<java.version>11</java.version>
 	</properties>
 	<distributionManagement>
-    <repository>
-        <id>central</id>
-        <name>MindDevops11-releases</name>
-        <url>http://localhost:8082/artifactory/libs-release-local/</url>
-    </repository>
-    <snapshotRepository>
-        <id>snapshots</id>
-        <name>MindDevops11-snapshots</name>
-        <url>http://localhost:8082/artifactory/libs-snapshot-local/</url>
-    </snapshotRepository>
-</distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>MindDevops11-releases</name>
+			<url>http://localhost:8082/artifactory/libs-release-local/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>MindDevops11-snapshots</name>
+			<url>http://localhost:8082/artifactory/libs-snapshot-local/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<scm>
 		<connection>scm:git:git@github.com:Jamuna1998/devops.git</connection>
@@ -63,10 +63,17 @@
 			<version>4.8.2</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
-	<finalName>devops</finalName>
+		<finalName>devops</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -80,10 +87,19 @@
 					<tagNameFormat>v@{project.version}</tagNameFormat>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 				</configuration>
-			</plugin>
+			</plugin>			
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
-				
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://localhost:8090/manager/html</url>
+					<server>TomcatServer</server>
+					<path>/devops</path>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
